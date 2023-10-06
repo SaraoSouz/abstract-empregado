@@ -1,43 +1,32 @@
-export class Cobra {
+import { Empregado } from "./Empregado";
 
-    //atributos da classe
-    private tamanho: string;
-    private especie: string;
-    private cor: string;
+export class Horista extends Empregado{
+    private valorHora: number;
+    private horasTrabalhadas: number;
 
-    //método construtor
-    public constructor (
-        _tamanho: string,
-        _especie: string,
-        _cor: string,){
-
-            this.tamanho = _tamanho;
-            this.especie = _especie;
-            this.cor = _cor
-        }
-
-        //métodos GETTERS and SETTERS
-    public getTamanho(): string{
-        return this.tamanho;
+    public constructor(_nome: string, _cpf: string, _valorHora: number, _horasTrabalhadas: number){
+        super(_nome, _cpf);
+        this.valorHora = _valorHora;
+        this.horasTrabalhadas = _horasTrabalhadas;
     }
 
-    public setComprimento(_tamanho: string){
-        this.tamanho = _tamanho;
+    public setValorHora(_valorHora: number){
+        this.valorHora = _valorHora;
     }
 
-    public getEspecie(){
-        return this.especie;
+    public getValorHora(){
+        return this.valorHora;
     }
 
-    public setEspecie(_especie: string){
-        this.especie = _especie;
+    public setHorasTrabalhadas(_horasTrabalhadas: number){
+        this.horasTrabalhadas = _horasTrabalhadas;
     }
 
-    public getCor(){
-        return this.cor;
+    public getHorasTrabalhadas(){
+        return this.horasTrabalhadas;
     }
 
-    public setCor(_cor: string){
-        this.cor = _cor;
+    public vencimento(): number {
+        return this.valorHora * this.horasTrabalhadas;
     }
 }

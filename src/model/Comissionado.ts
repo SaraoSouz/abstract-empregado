@@ -1,53 +1,33 @@
+import { Empregado } from "./Empregado";
 
+export class comissionado extends Empregado{
 
- export class Bola{
+    private totalVendas: number;
+    private taxaComissao: number;
 
-    //atributos da classe
-   
-    private material: string;
-    private marca: string;
-    private peso: string;
-
-    //método construtor
-    public constructor (
-    _material: string,
-    _marca: string,
-    _peso: string,)
-
-    {
-        this.material = _material;
-        this.marca = _marca;
-        this.peso = _peso;
-       
+    public constructor(_nome: string, _cpf: string, _totalVendas: number, _taxaComissao:number){
+        super(_nome, _cpf);
+        this.totalVendas = _totalVendas;
+        this.taxaComissao = _taxaComissao;
     }
 
-     //métodos GETTERS and SETTERS
-     public getMaterial(){
-        return this.material;
+    public setTotalVendas(_totalVendas: number): void{
+        this.totalVendas = _totalVendas;
     }
 
-    public setMaterial(_material: string){
-        this.material = _material;
+    public getTotalVendas(): number{
+        return this.totalVendas;
+    }
+
+    public setTaxaComissao(_taxaComissao:number):void{
+        this.taxaComissao = _taxaComissao;
+    }
+
+    public getTaxaComissao(): number{
+        return this.taxaComissao;
     }
     
-    public getMarca(){
-        return this.marca;
+    public vencimento(): number {
+        return this.totalVendas +(this.totalVendas*this.taxaComissao);
     }
-
-    public setMarca(_marca: string){
-        this.marca = _marca;
-    }
-
-    public getPeso(){
-        return this.peso;
-    }
-
-    public setPeso(_peso: string){
-        this.peso = _peso;
-    }
-   
-
-
-
-
- }
+} 
